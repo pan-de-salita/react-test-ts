@@ -8,7 +8,7 @@ interface SquareProps {
 }
 
 // define Square as a React.FC that expects props of type SquareProps:
-const Square: React.FC<SquareProps> = function Square({ value, onSquareClick }) {
+function Square({ value, onSquareClick }: SquareProps) {
   return (
     <button className="square" onClick={onSquareClick}>
       {value}
@@ -83,7 +83,8 @@ function Board() {
   );
 }
 
-function calculateWinner(squares: string | null[]): string | null {
+// determine the winner
+function calculateWinner(squares: (string | null)[]): string | null {
   const lines: number[][] = [
     [0, 1, 2],
     [3, 4, 5],
@@ -92,11 +93,11 @@ function calculateWinner(squares: string | null[]): string | null {
     [1, 4, 7],
     [2, 5, 8],
     [0, 4, 8],
-    [2, 4, 8]
+    [2, 4, 6]
   ];
 
   for (let i = 0; i < lines.length; i++) {
-    // retrieve the values of each subarray in lines:
+    // retrieve the values of each subarray in lines via destructuring:
     let [a, b, c] = lines[i];
 
     // use the retrieved values above as indices for squares;
@@ -107,7 +108,7 @@ function calculateWinner(squares: string | null[]): string | null {
       return squares[a];
     }
   }
-  // else return null:
+  // else, return null:
   return null;
 }
 
