@@ -12,10 +12,6 @@ export default function isGameEnd(squares: (string | null)[][]): string | null {
   }
 }
 
-function isDraw(squares: (string | null)[][]): string | null {
-  return result = squares.every(subArr => subArr.every(square => square)) ? "draw" : null;
-}
-
 function checkForWin(squares: (string | null)[][]): string | null {
   for (let i = 0; i < squares.length; i++) {
     const allX = squares[i].filter(value => value === 'X');
@@ -55,6 +51,10 @@ function makeDiagonal(squares: (string | null)[][]): (string | null)[][] {
   }
 
   return [leftDiagonal, rightDiagonal];
+}
+
+function isDraw(squares: (string | null)[][]): string | null {
+  return result = squares.every(subArr => subArr.every(square => square)) ? "draw" : null;
 }
 
 function createDefaultSquares(): (string | null)[][] {

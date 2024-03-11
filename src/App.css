@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 *{
   padding: 0; 
   margin: 0; 
@@ -22,4 +26,5 @@
   max-width: 3rem;
   max-height: 3rem;
   margin: 0.5rem;
+  border: 1px solid gray;
 }
